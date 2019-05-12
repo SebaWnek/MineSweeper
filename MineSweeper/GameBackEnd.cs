@@ -13,7 +13,7 @@ namespace MineSweeper
         private int columns;
         private int mines;
         Random rnd = new Random();
-        bool started = false;
+        bool started;
 
         public GameBackEnd(int rows, int columns, int mines)
         {
@@ -21,6 +21,7 @@ namespace MineSweeper
             this.columns = columns;
             this.mines = mines;
             gameMap = new int[rows, columns];
+            started = false;
         }
 
         public void ClearGameMap()
@@ -95,7 +96,6 @@ namespace MineSweeper
             // >0 number of neighbors
             if (!started)
             {
-                MainWindow mainWindow = new MainWindow();
                 GenerateMines(row, column);
                 started = true;
                 return 0;

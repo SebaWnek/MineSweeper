@@ -26,6 +26,6 @@
             <Label Content="Mines:"/>
             <TextBox x:Name="minesSetBox" Text="10" Width="50" VerticalAlignment="Center" HorizontalContentAlignment="Center"/>
         </StackPanel>
-        <Button x:Name="OKButton" Content="OK" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,5" Padding="20,5" Click="OKButton_Click"/>
+        <Button x:Name="OKButton" Content="OK" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,5" Padding="20,5" Click="OKButton_Click" IsDefault="True"/>
     </Grid>
 </Window>

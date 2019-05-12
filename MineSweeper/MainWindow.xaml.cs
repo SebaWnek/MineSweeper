@@ -45,6 +45,7 @@ namespace MineSweeper
         private void SetUpGame(int level)
         {
             stopWatch = new Stopwatch();
+            isGameOn = false;
             switch (level)
             {
                 case 1:
@@ -170,18 +171,17 @@ namespace MineSweeper
         private void GameButton_Click(object sender, RoutedEventArgs e)
         {
             Button thisButton = sender as Button;
-            CheckField(thisButton);
             if (!isGameOn)
             {
                 Start();
                 isGameOn = true;
                 CheckIfWon();
             }
+            CheckField(thisButton);
         }
 
         private void CheckField(Button thisButton)
         {
-            openedCount++;
             if (thisButton.Content.ToString() == "!" || thisButton.Content.ToString() == "?")
             {
                 return;
@@ -189,6 +189,11 @@ namespace MineSweeper
             if (thisButton.Content.ToString() != " ")
             {
                 CheckIfFoundNeighborMines(thisButton);
+            }
+            if (thisButton.Content.ToString() == " ")
+            {
+
+                openedCount++;
             }
             int row = Grid.GetRow(thisButton);
             int column = Grid.GetColumn(thisButton);
